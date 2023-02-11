@@ -1,10 +1,7 @@
 package com.travelapp.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
+
 import java.util.List;
 import lombok.Data;
 
@@ -16,7 +13,7 @@ public class Category {
   public Long id;
   public String name;
   public String imageUrl;
-  @ManyToMany
+  @ManyToMany(cascade = CascadeType.ALL)
   public List<Location> locationList;
 
   public Category(){}
