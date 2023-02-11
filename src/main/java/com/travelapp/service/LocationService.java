@@ -8,5 +8,5 @@ import java.util.Optional;
 public interface LocationService {
     Optional<Location> findByName(String name);
     List<Location> listLocations();
-    List<Location> listLocationsByCategory(String categoryName);
+    List<Location> listLocationsByCategory(Long categoryId);
 }
