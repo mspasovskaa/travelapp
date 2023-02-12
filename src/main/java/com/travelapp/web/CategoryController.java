@@ -5,6 +5,7 @@ import com.travelapp.model.Category;
 import com.travelapp.service.CategoryService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -24,6 +25,12 @@ public class CategoryController {
         return "home";
     }
 
+    @GetMapping("/categories/{id}")
+    public String getCategory(@PathVariable Long categoryId,Model model) {
+        Category category = this.categoryService.findById(categoryId);
+        model.addAttribute("category", category);
+        return "category";
+    }
     @GetMapping("/categories")
     public String getCategories(Model model) {
         List<Category> categoryList = this.categoryService.listCategories();

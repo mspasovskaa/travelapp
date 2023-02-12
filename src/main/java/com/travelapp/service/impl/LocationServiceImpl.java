@@ -3,6 +3,7 @@ package com.travelapp.service.impl;
 import com.travelapp.model.Category;
 import com.travelapp.model.Location;
 import com.travelapp.model.exceptions.CategoryNotFoundException;
+import com.travelapp.model.exceptions.LocationNotFoundException;
 import com.travelapp.repository.CategoryRepository;
 import com.travelapp.repository.LocationRepository;
 import com.travelapp.service.LocationService;
@@ -19,6 +20,11 @@ public class LocationServiceImpl implements LocationService {
     public LocationServiceImpl(LocationRepository locationRepository, CategoryRepository categoryRepository) {
         this.locationRepository = locationRepository;
         this.categoryRepository = categoryRepository;
+    }
+
+    @Override
+    public Location findById(Long locationId) {
+        return this.locationRepository.findById(locationId).orElseThrow(()->new LocationNotFoundException());
     }
 
     @Override
