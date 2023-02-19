@@ -29,6 +29,8 @@ public class Location {
 
   @ManyToMany(mappedBy = "locationList",cascade = CascadeType.ALL)
   private List<Category> categories;
+  @ManyToOne
+  private Country country;
 
   public Location() {
 

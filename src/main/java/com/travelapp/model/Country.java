@@ -15,7 +15,7 @@ public class Country {
     private String description;
     private String imageUrl;
     private String mapUrl;
-    @OneToMany
+    @OneToMany(mappedBy = "country", cascade = CascadeType.ALL)
     private List<Location> locations;
 
     public Country() {
