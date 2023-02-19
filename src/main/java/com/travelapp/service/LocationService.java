@@ -9,5 +9,7 @@ public interface LocationService {
     Location findById(Long locationId);
     Optional<Location> findByName(String name);
     List<Location> listLocations();
-    List<Location> listLocationsByCategory(Long categoryId);
+    List<Location> filterByCategoryAndCountry(Long categoryId, Long countryId);
+//    List<Location> listLocationsByCategory(Long categoryId);
+//    List<Location> listLocationsByCountry(Long countryId);
 }

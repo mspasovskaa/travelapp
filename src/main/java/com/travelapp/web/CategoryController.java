@@ -25,7 +25,7 @@ public class CategoryController {
         return "home";
     }
 
-    @GetMapping("/categories/{id}")
+    @GetMapping("/categories/{categoryId}")
     public String getCategory(@PathVariable Long categoryId,Model model) {
         Category category = this.categoryService.findById(categoryId);
         model.addAttribute("category", category);

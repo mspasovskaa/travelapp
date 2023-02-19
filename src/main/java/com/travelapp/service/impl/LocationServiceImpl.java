@@ -1,10 +1,13 @@
 package com.travelapp.service.impl;
 
 import com.travelapp.model.Category;
+import com.travelapp.model.Country;
 import com.travelapp.model.Location;
 import com.travelapp.model.exceptions.CategoryNotFoundException;
+import com.travelapp.model.exceptions.CountryNotFoundException;
 import com.travelapp.model.exceptions.LocationNotFoundException;
 import com.travelapp.repository.CategoryRepository;
+import com.travelapp.repository.CountryRepository;
 import com.travelapp.repository.LocationRepository;
 import com.travelapp.service.LocationService;
 import org.springframework.stereotype.Service;
@@ -16,15 +19,17 @@ import java.util.Optional;
 public class LocationServiceImpl implements LocationService {
     private final LocationRepository locationRepository;
     private final CategoryRepository categoryRepository;
+    private final CountryRepository countryRepository;
 
-    public LocationServiceImpl(LocationRepository locationRepository, CategoryRepository categoryRepository) {
+    public LocationServiceImpl(LocationRepository locationRepository, CategoryRepository categoryRepository, CountryRepository countryRepository) {
         this.locationRepository = locationRepository;
         this.categoryRepository = categoryRepository;
+        this.countryRepository = countryRepository;
     }
 
     @Override
     public Location findById(Long locationId) {
-        return this.locationRepository.findById(locationId).orElseThrow(()->new LocationNotFoundException());
+        return this.locationRepository.findById(locationId).orElseThrow(LocationNotFoundException::new);
     }
 
     @Override
@@ -38,17 +43,30 @@ public class LocationServiceImpl implements LocationService {
     }
 
     @Override
-    public List<Location> listLocationsByCategory(Long categoryId) {
-        Category category;
-        if (categoryId != null) {
-            category = this.categoryRepository.findById(categoryId).orElseThrow(CategoryNotFoundException::new);
-        } else {
-            category = null;
-        }
-        if (category != null) {
+    public List<Location> filterByCategoryAndCountry(Long categoryId, Long countryId) {
+        Category category = categoryId!=null ? this.categoryRepository.findById(categoryId).orElseThrow(CategoryNotFoundException::new) : null;
+        Country country = countryId!=null ? this.countryRepository.findById(countryId).orElseThrow(CountryNotFoundException::new) : null;
+
+        if(category!=null && country!=null)
+            return this.locationRepository.findAllByCountryAndCategoriesContaining(country, category);
+        else if(category!=null)
             return this.locationRepository.findAllByCategoriesContaining(category);
-        } else {
+        else if(country!=null)
+            return this.locationRepository.findAllByCountry(country);
+        else
             return this.locationRepository.findAll();
-        }
     }
+
+//    @Override
+//    public List<Location> listLocationsByCategory(Long categoryId) {
+//        Category category = categoryId!=null ? this.categoryRepository.findById(categoryId).orElseThrow(CategoryNotFoundException::new) : null;
+//        return category!=null ? this.locationRepository.findAllByCategoriesContaining(category) : this.locationRepository.findAll();
+//    }
+//
+//    @Override
+//    public List<Location> listLocationsByCountry(Long countryId) {
+//        Country country = countryId!=null ? this.countryRepository.findById(countryId).orElseThrow(CountryNotFoundException::new) : null;
+//        return country!=null ? this.locationRepository.findAllByCountry(country) : this.locationRepository.findAll();
+//    }
+
 }
