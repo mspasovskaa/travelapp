@@ -56,17 +56,4 @@ public class LocationServiceImpl implements LocationService {
         else
             return this.locationRepository.findAll();
     }
-
-//    @Override
-//    public List<Location> listLocationsByCategory(Long categoryId) {
-//        Category category = categoryId!=null ? this.categoryRepository.findById(categoryId).orElseThrow(CategoryNotFoundException::new) : null;
-//        return category!=null ? this.locationRepository.findAllByCategoriesContaining(category) : this.locationRepository.findAll();
-//    }
-//
-//    @Override
-//    public List<Location> listLocationsByCountry(Long countryId) {
-//        Country country = countryId!=null ? this.countryRepository.findById(countryId).orElseThrow(CountryNotFoundException::new) : null;
-//        return country!=null ? this.locationRepository.findAllByCountry(country) : this.locationRepository.findAll();
-//    }
-
 }

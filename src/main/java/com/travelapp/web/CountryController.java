@@ -25,12 +25,4 @@ public class CountryController {
         model.addAttribute("countries", countries);
         return "countryList";
     }
-
-//    @GetMapping("/{countryId}")
-//    public String getCountry(@PathVariable Long countryId, Model model) {
-//        Country country = this.countryService.findById(countryId);
-//        model.addAttribute("country", country);
-//        return "country";
-//    }
-
 }
