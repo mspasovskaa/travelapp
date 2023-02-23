@@ -1,6 +1,7 @@
 package com.travelapp.web;
 
 import com.travelapp.model.Country;
+import com.travelapp.model.Location;
 import com.travelapp.service.CountryService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,5 +31,12 @@ public class CountryController {
         List<Country> countries = this.countryService.listCountries();
         model.addAttribute("countries", countries);
         return "countryList";
+    }
+
+    @GetMapping("/countries/{id}")
+    public String getCountry(@PathVariable Long id, Model model) {
+        Country country = this.countryService.findById(id);
+        model.addAttribute("country",country);
+        return "country";
     }
 }

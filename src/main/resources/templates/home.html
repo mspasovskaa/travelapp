@@ -75,7 +75,7 @@
     <div class="p-5 row">
         <h3 class="col-12 text-center">Countries:</h3>
         <div class="col d-flex gap-2 justify-content-center">
-            <a th:each="country :${countries}" th:text="${country.getName()}"
+            <a th:each="country : ${countries}" th:text="${country.getName()}"
                th:href="@{'/locations' (countryId=${country.getId()})}" class="btn btn-lg btn-outline-dark"></a>
         </div>
     </div>
