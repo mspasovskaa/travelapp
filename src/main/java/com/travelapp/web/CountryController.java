@@ -11,15 +11,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/countries")
+@RequestMapping("/")
 public class CountryController {
     private final CountryService countryService;
 
     public CountryController(CountryService countryService) {
         this.countryService = countryService;
     }
-
     @GetMapping
+    public String getMainPage(Model model) {
+        List<Country> countries = this.countryService.listCountries();
+        model.addAttribute("countries", countries);
+        return "home";
+    }
+
+    @GetMapping("/countries")
     public String getCountries(Model model){
         List<Country> countries = this.countryService.listCountries();
         model.addAttribute("countries", countries);

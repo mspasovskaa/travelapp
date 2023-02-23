@@ -16,7 +16,7 @@ public class LocationController {
     this.locationService = locationService;
   }
 
-  @GetMapping()
+  @GetMapping
   public String getLocations(@RequestParam(required = false) Long categoryId,
                              @RequestParam(required = false) Long countryId, Model model) {
     List<Location> locations;

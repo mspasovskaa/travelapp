@@ -20,11 +20,6 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @GetMapping
-    public String getMainPage(Model model) {
-        return "home";
-    }
-
     @GetMapping("/categories/{categoryId}")
     public String getCategory(@PathVariable Long categoryId,Model model) {
         Category category = this.categoryService.findById(categoryId);
