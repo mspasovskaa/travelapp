@@ -57,7 +57,7 @@
             <img src="/img/camping.jpg" class="d-block w-100" alt="camping">
         </div>
         <div class="carousel-item">
-            <img src="/img/kayaking.jpg" class="d-block w-100" alt="...">
+            <img src="/img/kayaking.jpg" class="d-block w-100" alt="kayaking">
         </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -71,12 +71,16 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
-<div class="bg-light-subtle text-dark" id="countries_section">
+<div class="bg-light-subtle text-dark text-center" id="countries_section">
     <div class="p-5 row">
-        <h3 class="col-12 text-center">Countries:</h3>
-        <div class="col d-flex gap-2 justify-content-center">
-            <a th:each="country : ${countries}" th:text="${country.getName()}"
-               th:href="@{'/locations' (countryId=${country.getId()})}" class="btn btn-lg btn-outline-dark"></a>
+        <h3 class="col-12">Countries:</h3>
+        <div th:each="country : ${countries}" class="col-lg-4 col-md-6 col-sm-12">
+            <div class="row">
+                <a th:href="@{'/locations' (countryId=${country.getId()})}">
+                    <img th:src="${country.getImageUrl()}" class="country-button" alt="country">
+                </a>
+                <h4 th:text="${country.getName()}"></h4>
+            </div>
         </div>
     </div>
 </div>
