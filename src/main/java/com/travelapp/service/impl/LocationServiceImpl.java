@@ -43,7 +43,7 @@ public class LocationServiceImpl implements LocationService {
     }
 
     @Override
-    public List<Location> filterByCategoryAndCountry(Long categoryId, Long countryId) {
+    public List<Location> filterByCategoryAndCountry(Long countryId, Long categoryId) {
         Category category = categoryId!=null ? this.categoryRepository.findById(categoryId).orElseThrow(CategoryNotFoundException::new) : null;
         Country country = countryId!=null ? this.countryRepository.findById(countryId).orElseThrow(CountryNotFoundException::new) : null;
 

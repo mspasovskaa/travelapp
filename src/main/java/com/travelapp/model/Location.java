@@ -27,7 +27,7 @@ public class Location {
 
   public String latitude;
 
-  @ManyToMany(mappedBy = "locationList",cascade = CascadeType.ALL)
+  @ManyToMany(cascade = CascadeType.ALL)
   private List<Category> categories;
   @ManyToOne
   private Country country;
@@ -35,7 +35,7 @@ public class Location {
   public Location() {
 
   }
-  public Location(String name, String address,String description, String source, String imageUrl,String longitude, String latitude) {
+  public Location(String name, String address,String description, String source, String imageUrl,String longitude, String latitude, Country country, List<Category> categories) {
     this.name = name;
     this.address = address;
     this.description=description;
@@ -43,6 +43,8 @@ public class Location {
     this.imageUrl=imageUrl;
     this.longitude = longitude;
     this.latitude = latitude;
+    this.country = country;
+    this.categories = categories;
   }
 
 }
