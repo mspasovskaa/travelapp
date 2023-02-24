@@ -23,7 +23,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#countries_section">Countries</a>
+          <a class="nav-link" href="/">Countries</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/locations">Locations</a>
@@ -42,19 +42,27 @@
   </nav>
 </div>
 
+<img src="/img/location-banner.jpeg" class="d-block w-100" alt="banner">
+
 <div>
-  <h2 class="mt-5 pt-5 text-center" th:text="${country.getName()}"></h2>
+  <h2 class="mt-3 text-center" th:text="${country.getName()}"></h2>
   <div class="text-center" th:text="${country.getDescription()}"></div>
 </div>
-<div>
-  <h5 class="mt-3 pt-3 text-center">Locations that you can enjoy:</h5>
-  <div class="card" th:each="location : ${locations}">
-    <img class="card-img-top" th:src="${location.getImageUrl()}" height="350px" width="240px>
-    <h4 th:text="${location.getName()}><b></b></h4>
-    <p th:text="${location.getDescription()}"></p>
+
+  <div class="container">
+    <h5 class="my-3 text-center">Locations that you can enjoy:</h5>
+    <div class="row mb-2">
+        <div class="location-card card col-lg-4 col-md-6 col-sm-12 m-2 pb-3" th:each="location : ${locations}">
+          <img class="card-img-top" th:src="${location.getImageUrl()}" alt="location-image">
+          <h4 th:text="${location.getName()}" class="mt-2"></h4>
+          <h6 class="card-subtitle mb-2 text-muted" th:text="${location.getAddress()}"></h6>
+          <div class="div-card-link">
+          <a th:href="@{'/locations/{locationId}' (locationId=${location.getId()})}" class="card-link">Click here to see more <i class="bi bi-arrow-right next"></i></a>
+          </div>
+        </div>
+    </div>
   </div>
-</div>
-</div>
+
 
 </body>
 </html>

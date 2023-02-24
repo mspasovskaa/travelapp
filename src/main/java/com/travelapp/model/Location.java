@@ -27,7 +27,8 @@ public class Location {
 
   public String latitude;
 
-  @ManyToMany(cascade = CascadeType.ALL)
+//  @ManyToMany(cascade = CascadeType.ALL)
+@ManyToMany
   private List<Category> categories;
   @ManyToOne
   private Country country;

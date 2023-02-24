@@ -13,8 +13,8 @@ public class Category {
   public Long id;
   public String name;
   public String imageUrl;
-  @ManyToMany(mappedBy = "categories", cascade = CascadeType.ALL)
-  public List<Location> locationList;
+//  @ManyToMany(mappedBy = "categories", cascade = CascadeType.ALL)
+//  public List<Location> locationList;
 
   public Category(){}
   public Category(String name,String imageUrl) {
