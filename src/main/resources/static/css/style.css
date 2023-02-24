@@ -1,7 +1,8 @@
 body{
     font-family: "Orbitron", sans-serif;
-    font-weight: bold;
+    font-size: 20px;
     line-height: 1.7;
+    letter-spacing: 2px;
 }
 
 #logo{
@@ -9,8 +10,8 @@ body{
     width: 135px;
 }
 
-.navbar{
-    background: rgba(227, 242, 253, 0.4);
+.navbar .navbar-nav li a {
+    color: white ;
 }
 
 .navbar .navbar-nav .nav-item {
@@ -23,7 +24,7 @@ body{
     left: 0;
     right: 0;
     margin: auto;
-    background-color: #000000;
+    background-color: white;
     width: 0;
     content: "";
     height: 2px;
@@ -48,4 +49,8 @@ img.country-button:hover{
     filter: none;
     -webkit-filter: grayscale(0%);
     transform: scale(1.01);
+}
+
+.crs-img{
+    -webkit-filter: brightness(50%);
 }
