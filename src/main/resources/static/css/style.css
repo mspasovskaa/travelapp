@@ -37,3 +37,15 @@ body{
 .active .nav-item::after{
     width: 80%;
 }
+
+.country-button{
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(1); /* Webkit Nightlies & Chrome Canary */
+    -webkit-transition: all .8s ease-in-out;
+}
+
+.country-button:hover{
+    filter: none;
+    -webkit-filter: grayscale(0);
+    -webkit-transform: scale(1.01);
+}
