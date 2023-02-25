@@ -98,3 +98,7 @@ img.country-button:hover{
 .card-link:hover .next {
     opacity: 1.0;
 }
+
+.smaller-font {
+    font-size: 16px;
+}
