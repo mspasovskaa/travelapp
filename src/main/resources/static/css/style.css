@@ -54,3 +54,51 @@ img.country-button:hover{
 .crs-img{
     -webkit-filter: brightness(50%);
 }
+
+.card-img-top {
+    object-fit: cover;
+}
+
+.location-card:hover{
+    transform: scale(1.02);
+    -webkit-transition: transform 0.6s ease-in-out;
+}
+
+.card-link {
+    color: black ;
+    font-size: 16px;
+    text-decoration-line: none;
+}
+
+.div-card-link {
+    position: relative;
+}
+
+.div-card-link::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    width: 0;
+    content: "";
+    height: 1px;
+    transition: all 0.5s;
+}
+
+.div-card-link:hover::after {
+    width: 60%;
+}
+
+.next {
+    opacity: 0;
+    transition: opacity 800ms;
+}
+
+.card-link:hover .next {
+    opacity: 1.0;
+}
+
+.smaller-font {
+    font-size: 16px;
+}

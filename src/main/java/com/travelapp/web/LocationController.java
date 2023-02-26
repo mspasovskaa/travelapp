@@ -1,5 +1,7 @@
 package com.travelapp.web;
 
+import com.travelapp.model.Category;
+import com.travelapp.model.Country;
 import com.travelapp.model.Location;
 import com.travelapp.service.LocationService;
 import java.util.List;
@@ -38,6 +40,10 @@ public class LocationController {
   public String getLocation(@PathVariable Long id, Model model) {
     Location location = locationService.findById(id);
     model.addAttribute("location",location);
+    List<Category> categories = location.getCategories();
+    model.addAttribute("categories", categories);
+    Country country = location.getCountry();
+    model.addAttribute("country", country);
     return "location";
   }
 }
