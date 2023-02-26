@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/categories")
 public class CategoryController {
 
     private final CategoryService categoryService;
@@ -20,17 +20,17 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @GetMapping("/categories/{categoryId}")
-    public String getCategory(@PathVariable Long categoryId,Model model) {
-        Category category = this.categoryService.findById(categoryId);
-        model.addAttribute("category", category);
-        return "category";
-    }
-    @GetMapping("/categories")
+    @GetMapping
     public String getCategories(Model model) {
         List<Category> categoryList = this.categoryService.listCategories();
         model.addAttribute("categories", categoryList);
         return "categoryList";
     }
 
+    @GetMapping("/{categoryId}")
+    public String getCategory(@PathVariable Long categoryId,Model model) {
+        Category category = this.categoryService.findById(categoryId);
+        model.addAttribute("category", category);
+        return "category";
+    }
 }

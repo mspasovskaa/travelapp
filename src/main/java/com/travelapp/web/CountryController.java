@@ -30,19 +30,12 @@ public class CountryController {
         return "home";
     }
 
-    @GetMapping("/countries")
-    public String getCountries(Model model){
-        List<Country> countries = this.countryService.listCountries();
-        model.addAttribute("countries", countries);
-        return "countryList";
-    }
-
     @GetMapping("/countries/{id}")
     public String getCountry(@PathVariable Long id, Model model) {
         Country country = this.countryService.findById(id);
         List<Location> locations = this.locationService.filterByCategoryAndCountry(id, null);
         model.addAttribute("country",country);
         model.addAttribute("locations",locations);
-        return "locations";
+        return "country";
     }
 }
