@@ -31,7 +31,7 @@ public class DataInitializer {
         categoryRepository.save(beach);
         categoryRepository.save(camping);
 
-        List<Category> beachCamping = new ArrayList<>();
+        List<Category> beachCamping = categoryRepository.findAll();
         beachCamping.add(beach);
         beachCamping.add(camping);
 
