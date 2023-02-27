@@ -56,7 +56,7 @@
                                 th:value="${category.getId()}"
                                 th:selected="${(selectedCategory!=null && selectedCategory.equals(category) ? category : null)}"></option>
                     </select>
-                    <label for="country" class="btn btn-outline-dark disabled">Country</label>
+                    <label for="country" class="btn btn-outline-dark disabled">Country: </label>
                     <select id="country" name="countryId">
                         <option value="">All</option>
                         <option th:each="country: ${countries}"
@@ -72,19 +72,23 @@
 
 <div class="container">
     <h5 class="my-3 text-center">Locations that you can enjoy:</h5>
-    <div class="row mb-2">
-        <div class="location-card card col-lg-4 col-md-6 col-sm-12 m-2 pb-3" th:each="location : ${locations}">
-            <img class="card-img-top" th:src="${location.getImageUrl()}" alt="location-image">
-            <h4 th:text="${location.getName()}" class="mt-2"></h4>
-            <h6 class="card-subtitle mb-2 text-muted" th:text="${location.getAddress()}"></h6>
-            <div class="div-card-link">
-                <a th:href="@{'/locations/{locationId}' (locationId=${location.getId()})}" class="card-link">Click here
-                    to see more <i class="bi bi-arrow-right next"></i></a>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col" th:each="location : ${locations}">
+            <div class="card text-bg-light h-100 location-card">
+                <img class="card-img-top" th:src="${location.getImageUrl()}" alt="location-image">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${location.getName()}"></h5>
+                    <p class="card-subtitle mb-2 text-muted smaller-font" th:text="${location.getAddress()}"></p>
+                    <div class="div-card-link">
+                        <a th:href="@{'/locations/{locationId}' (locationId=${location.getId()})}" class="card-link">
+                            Click here--> to see more <i class="bi bi-arrow-right next"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
 
 </body>
 </html>
