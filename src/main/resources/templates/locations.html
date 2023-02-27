@@ -23,13 +23,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Countries</a>
+                    <a class="nav-link" href="/#countries_section">Countries</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/locations">Locations</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="bi bi-heart"></i> Favorites</a>
+                    <a class="nav-link" href="#">Favorites</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
@@ -75,13 +75,14 @@
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col" th:each="location : ${locations}">
             <div class="card text-bg-light h-100 location-card">
-                <img class="card-img-top" th:src="${location.getImageUrl()}" alt="location-image">
+                <div class="card-header" th:text="${location.getCountry().getName()}"></div>
+                <img class="img-fluid" th:src="${location.getImageUrl()}" alt="location-image">
                 <div class="card-body">
                     <h5 class="card-title" th:text="${location.getName()}"></h5>
-                    <p class="card-subtitle mb-2 text-muted smaller-font" th:text="${location.getAddress()}"></p>
-                    <div class="div-card-link">
+                    <i class="bi bi-geo-alt text-muted smaller-font"></i><p class="card-subtitle mb-2 text-muted smaller-font d-inline" th:text="${location.getAddress()}"></p>
+                    <div class="div-card-link border-top border-2">
                         <a th:href="@{'/locations/{locationId}' (locationId=${location.getId()})}" class="card-link">
-                            Click here--> to see more <i class="bi bi-arrow-right next"></i>
+                            Click here to see more <i class="bi bi-arrow-right next"></i>
                         </a>
                     </div>
                 </div>
@@ -89,6 +90,8 @@
         </div>
     </div>
 </div>
+
+
 
 </body>
 </html>
