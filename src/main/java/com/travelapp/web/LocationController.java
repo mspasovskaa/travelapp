@@ -30,10 +30,26 @@ public class LocationController {
     List<Location> locations;
     Country country;
     Category category;
-    if(categoryId==null && countryId==null)
-      locations = this.locationService.listLocations();
-    else
+    if(categoryId!=null && countryId!=null){
       locations = this.locationService.filterByCategoryAndCountry(countryId, categoryId);
+      country = this.countryService.findById(countryId);
+      category = this.categoryService.findById(categoryId);
+    }
+    else if(categoryId!=null){
+      locations = this.locationService.filterByCategoryAndCountry(countryId, categoryId);
+      category = this.categoryService.findById(categoryId);
+      country = null;
+    }
+    else if(countryId!=null){
+      locations = this.locationService.filterByCategoryAndCountry(countryId, categoryId);
+      country = this.countryService.findById(countryId);
+      category = null;
+    }
+    else{
+      locations = this.locationService.listLocations();
+      country = null;
+      category = null;
+    }
 
     List<Category> categories = categoryService.listCategories();
     List<Country> countries = countryService.listCountries();
@@ -41,6 +57,8 @@ public class LocationController {
     model.addAttribute("locations", locations);
     model.addAttribute("categories", categories);
     model.addAttribute("countries", countries);
+    model.addAttribute("selectedCountry", country);
+    model.addAttribute("selectedCategory", category);
     return "locations";
   }
 

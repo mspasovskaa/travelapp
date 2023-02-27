@@ -51,23 +51,24 @@
                     <label for="category" class="btn btn-outline-dark disabled" type="button" >Category: </label>
                     <select id="category" name="categoryId">
                         <option value="">All</option>
-                        <option th:each="category: ${categories}" th:text="${category.getName()}" th:value="${category.getId()}"></option>
+                        <option th:each="category: ${categories}"
+                                th:text="${category.getName()}"
+                                th:value="${category.getId()}"
+                                th:selected="${(selectedCategory!=null && selectedCategory.equals(category) ? category : null)}"></option>
                     </select>
                     <label for="country" class="btn btn-outline-dark disabled">Country</label>
                     <select id="country" name="countryId">
                         <option value="">All</option>
-                        <option th:each="country: ${countries}" th:text="${country.getName()}" th:value="${country.getId()}"></option>
+                        <option th:each="country: ${countries}"
+                                th:text="${country.getName()}"
+                                th:value="${country.getId()}"
+                                th:selected="${(selectedCountry!=null && selectedCountry.equals(country) ? country : null)}"></option>
                     </select>
                     <input type="submit" class="btn btn-outline-dark" id="button-addon2" value="Filter" />
                 </div>
             </form>
     </div>
 </div>
-
-<!--<div>-->
-<!--    <h2 class="mt-3 text-center" th:text="${country.getName()}"></h2>-->
-<!--    <div class="text-center" th:text="${country.getDescription()}"></div>-->
-<!--</div>-->
 
 <div class="container">
     <h5 class="my-3 text-center">Locations that you can enjoy:</h5>
