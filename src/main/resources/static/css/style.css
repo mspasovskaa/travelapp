@@ -1,17 +1,17 @@
-body{
+body {
     font-family: "Orbitron", sans-serif;
     font-size: 20px;
     line-height: 1.7;
     letter-spacing: 2px;
 }
 
-#logo{
+#logo {
     max-height: 100px;
     width: 135px;
 }
 
 .navbar .navbar-nav li a {
-    color: white ;
+    color: white;
 }
 
 .navbar .navbar-nav .nav-item {
@@ -35,23 +35,23 @@ body{
     width: 80%;
 }
 
-.active .nav-item::after{
+.active .nav-item::after {
     width: 80%;
 }
 
-img.country-button{
+img.country-button {
     -webkit-filter: grayscale(100%); /* Chrome 19+ & Safari 6+ */
     -webkit-transition: all .6s ease; /* Fade to color for Chrome and Safari */
     -webkit-backface-visibility: hidden; /* Fix for transition flickering */
 }
 
-img.country-button:hover{
+img.country-button:hover {
     filter: none;
     -webkit-filter: grayscale(0%);
     transform: scale(1.01);
 }
 
-.crs-img{
+.crs-img {
     -webkit-filter: brightness(50%);
 }
 
@@ -59,13 +59,13 @@ img.country-button:hover{
     object-fit: cover;
 }
 
-.location-card:hover{
+.location-card:hover {
     transform: scale(1.02);
     -webkit-transition: transform 0.6s ease-in-out;
 }
 
 .card-link {
-    color: black ;
+    color: black;
     font-size: 16px;
     text-decoration-line: none;
 }
@@ -101,4 +101,71 @@ img.country-button:hover{
 
 .smaller-font {
     font-size: 16px;
+}
+
+.main-wrapper {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    font-family: "Orbitron", sans-serif;
+}
+
+.person {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+}
+
+.wrapper {
+    border-radius: 50%;
+    height: 312px;
+    transform: scale(0.48);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    width: 400px;
+}
+
+.wrapper:hover {
+    transform: scale(0.54);
+}
+
+.wrapper:hover img {
+    transform: translateY(0) scale(1.2);
+}
+
+.circle {
+    border-radius: 50%;
+    cursor: pointer;
+    height: 380px;
+    left: 10px;
+    pointer-events: none;
+    position: absolute;
+    width: 380px;
+}
+
+.divider {
+    background-color: black;
+    height: 1px;
+    width: 160px;
+}
+
+.name {
+    color: black;
+    font-size: 36px;
+    font-weight: 600;
+    margin-top: 13px;
+    text-align: center;
+}
+
+.title {
+    color: #464646;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.about-us-text {
+    text-indent: 50px;
+    text-align: justify;
 }
