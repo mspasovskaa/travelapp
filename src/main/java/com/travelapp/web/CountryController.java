@@ -38,4 +38,9 @@ public class CountryController {
         model.addAttribute("locations",locations);
         return "country";
     }
+
+    @GetMapping("/aboutUs")
+    public String getAboutUsPage() {
+        return "aboutUs";
+    }
 }
