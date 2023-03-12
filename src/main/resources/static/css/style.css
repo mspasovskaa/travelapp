@@ -1,0 +1,104 @@
+body{
+    font-family: "Orbitron", sans-serif;
+    font-size: 20px;
+    line-height: 1.7;
+    letter-spacing: 2px;
+}
+
+#logo{
+    max-height: 100px;
+    width: 135px;
+}
+
+.navbar .navbar-nav li a {
+    color: white ;
+}
+
+.navbar .navbar-nav .nav-item {
+    position: relative;
+}
+
+.navbar .navbar-nav .nav-item::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: white;
+    width: 0;
+    content: "";
+    height: 2px;
+    transition: all 0.5s;
+}
+
+.navbar .navbar-nav .nav-item:hover::after {
+    width: 80%;
+}
+
+.active .nav-item::after{
+    width: 80%;
+}
+
+img.country-button{
+    -webkit-filter: grayscale(100%); /* Chrome 19+ & Safari 6+ */
+    -webkit-transition: all .6s ease; /* Fade to color for Chrome and Safari */
+    -webkit-backface-visibility: hidden; /* Fix for transition flickering */
+}
+
+img.country-button:hover{
+    filter: none;
+    -webkit-filter: grayscale(0%);
+    transform: scale(1.01);
+}
+
+.crs-img{
+    -webkit-filter: brightness(50%);
+}
+
+.card-img-top {
+    object-fit: cover;
+}
+
+.location-card:hover{
+    transform: scale(1.02);
+    -webkit-transition: transform 0.6s ease-in-out;
+}
+
+.card-link {
+    color: black ;
+    font-size: 16px;
+    text-decoration-line: none;
+}
+
+.div-card-link {
+    position: relative;
+}
+
+.div-card-link::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    width: 0;
+    content: "";
+    height: 1px;
+    transition: all 0.5s;
+}
+
+.div-card-link:hover::after {
+    width: 60%;
+}
+
+.next {
+    opacity: 0;
+    transition: opacity 800ms;
+}
+
+.card-link:hover .next {
+    opacity: 1.0;
+}
+
+.smaller-font {
+    font-size: 16px;
+}
