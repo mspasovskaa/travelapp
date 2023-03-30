@@ -38,7 +38,7 @@ public class DataInitializer {
         Country Macedonia = new Country("Macedonia", "MK Desc", "https://i.ibb.co/60zNZds/Macedonia.png", null);
         countryRepository.save(Macedonia);
         locationRepository.save(new Location("Gradiste Beach", "Gradiste, Ohrid", "Beach with clean waters and beautiful nature", null, "https://i1.wp.com/www.discoveringmacedonia.com/wp-content/uploads/2019/04/ohrid-beaches.jpg?fit=2048%2C1536&ssl=1", "20.8095906467","41.1196629179", Macedonia, beachCamping));
-        locationRepository.save(new Location("Slavija Beach", "Sveti Stefan, Ohrid", "Great beach in Ohrid", null, "https://mymacedoniablog.files.wordpress.com/2018/04/img_1311-ohrid-quiet-beach.jpg?w=900", null,null, Macedonia, beachCamping));
+        locationRepository.save(new Location("Slavija Beach", "Sveti Stefan, Ohrid", "Great beach in Ohrid", null, "https://mymacedoniablog.files.wordpress.com/2018/04/img_1311-ohrid-quiet-beach.jpg?w=900", "20.8001","41.07893", Macedonia, beachCamping));
 
         Country Serbia = new Country("Serbia", "SRB Desc", "https://i.ibb.co/rfFCfwv/Serbia.png", null);
         countryRepository.save(Serbia);
