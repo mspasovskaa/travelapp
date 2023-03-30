@@ -1,0 +1,48 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+
+.container{
+  display: flex;
+  justify-content: center;
+}
+
+h1{
+  color: #050A30;
+  text-align: center;
+  padding-top: 60px;
+  font-size: 3vw;
+}
+row{
+  margin-left: 40%;
+}
+#description{
+  color:orangered;
+}
+h4{
+  display: flex;
+  justify-content: center;
+  font-size: 1.5vw;
+  color:#CCD3D6;
+}
+#instruction{
+  color:#ff8b3d;
+  font-size: 10px;
+
+}
+
+
+i{
+  color: #050A30;
+}
+viewDiv{
+  display: flex;
+  justify-content: center;
+  width: 750px;
+  height: 400px;
+}
+
+.col-6 {width: 50%;}
